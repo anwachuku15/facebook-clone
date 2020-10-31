@@ -7,6 +7,7 @@ MERN Stack
 - Node.js
 - MongoDB
 - GridFS
+- Heroku
 
 # Getting Started with Create React App
 
