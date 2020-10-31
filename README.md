@@ -1,3 +1,13 @@
+MERN Stack
+
+- React
+- React Context API for Data Management
+- Material-UI
+- Express.js
+- Node.js
+- MongoDB
+- GridFS
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
