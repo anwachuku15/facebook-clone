@@ -24,12 +24,24 @@ const Header = () => {
         </div>
       </div>
       <div className="header__center">
-        <Home />
-        <Watch />
-        <Marketplace />
-        <Groups />
-        <Pages />
-        <Menu />
+        <div className="header__option">
+          <Home />
+        </div>
+        <div className="header__option">
+          <Watch />
+        </div>
+        <div className="header__option">
+          <Marketplace />
+        </div>
+        <div className="header__option">
+          <Groups />
+        </div>
+        <div className="header__option">
+          <Pages />
+        </div>
+        <div className="header__option">
+          <Menu />
+        </div>
       </div>
       <div className="header__right">
         <div className="headerInfo">
