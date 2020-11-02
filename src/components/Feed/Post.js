@@ -6,7 +6,6 @@ import {
   AccountCircleRounded,
   ChatBubbleOutlineRounded,
   ExpandMoreOutlined,
-  NearMeRounded,
   ThumbUpRounded,
   ReplyRounded,
 } from "@material-ui/icons";

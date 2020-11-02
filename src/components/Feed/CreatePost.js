@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import "./CreatePost.css";
+import { useStateValue } from "../../context/StateProvider";
 import avi from "../../assets/andrew.jpg";
 
 import { Avatar } from "@material-ui/core";
@@ -8,6 +9,8 @@ import PhotoLibrary from "@material-ui/icons/PhotoLibraryRounded";
 import InsertEmoticon from "@material-ui/icons/InsertEmoticonRounded";
 
 const CreatePost = () => {
+  const [{ user }, dispatch] = useStateValue();
+
   const [input, setInput] = useState("");
   const [image, setImage] = useState(null);
 
@@ -26,19 +29,17 @@ const CreatePost = () => {
     console.log("Submitting");
   };
 
-  const user = {
-    displayName: "Andrew",
-  };
+  const name = user.displayName.split(" ");
 
   return (
     <div className="createPost">
       <div className="createPost__top">
-        <Avatar src={avi} />
+        <Avatar src={user.photoURL} />
         <form>
           <input
             type="text"
             className="createPost__input"
-            placeholder={`What's on your mind, ${user.displayName}?`}
+            placeholder={`What's on your mind, ${name[0]}?`}
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />

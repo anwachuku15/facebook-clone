@@ -1,5 +1,5 @@
 import React from "react";
-// import { useStateValue } from '../../context/StateProvider'
+import { useStateValue } from "../../context/StateProvider";
 
 import "./Sidebar.css";
 import avi from "../../assets/andrew.jpg";
@@ -13,11 +13,11 @@ import Watch from "@material-ui/icons/SubscriptionsOutlined";
 import ExpandMore from "@material-ui/icons/ExpandMoreRounded";
 
 const Sidebar = () => {
-  // const [{user}, dispatch] = useStateValue()
+  const [{ user }, dispatch] = useStateValue();
 
   return (
     <div className="sidebar">
-      <SidebarRow src={avi} title="Andrew Nwachuku" />
+      <SidebarRow src={user.photoURL} title="Andrew Nwachuku" />
       <SidebarRow Icon={LocalHospital} title="COVID-19 Information Center" />
       <SidebarRow Icon={EmojiFlags} title="Pages" />
       <SidebarRow Icon={People} title="Friends" />

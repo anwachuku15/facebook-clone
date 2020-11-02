@@ -4,18 +4,17 @@ import StoryReel from "./StoryReel";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 import avi from "../../assets/andrew.jpg";
+import { useStateValue } from "../../context/StateProvider";
 
 const Feed = () => {
-  const user = {
-    displayName: "Andrew",
-  };
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="feed">
       <div className="feed__container">
         <StoryReel />
         <CreatePost />
         <Post
-          profilePic={avi}
+          profilePic={user.photoURL}
           body="This is an example of a post"
           timestamp="1604328116365"
           imgName="imgName"

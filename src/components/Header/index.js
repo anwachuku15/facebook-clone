@@ -1,6 +1,6 @@
 import React from "react";
-
 import "./Header.css";
+import { useStateValue } from "../../context/StateProvider";
 import logo from "../../assets/logo.png";
 import Search from "@material-ui/icons/Search";
 import Home from "@material-ui/icons/HomeRounded";
@@ -14,7 +14,11 @@ import Messenger from "@material-ui/icons/ForumRounded";
 import Notifications from "@material-ui/icons/NotificationsRounded";
 import ExpandMore from "@material-ui/icons/ExpandMoreRounded";
 import { Avatar, IconButton } from "@material-ui/core";
+import avi from "../../assets/andrew.jpg";
+
 const Header = () => {
+  const [{ user }, dispatch] = useStateValue();
+  const name = user.displayName.split(" ");
   return (
     <div className="header">
       <div className="header__left">
@@ -46,8 +50,8 @@ const Header = () => {
       </div>
       <div className="header__right">
         <div className="header__info">
-          <Avatar />
-          <h4>Andrew</h4>
+          <Avatar src={user.photoURL} />
+          <h4>{name[0]}</h4>
         </div>
         <IconButton>
           <Add />
