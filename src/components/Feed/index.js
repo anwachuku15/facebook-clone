@@ -1,10 +1,11 @@
 import React from "react";
 import "./Feed.css";
+import { useStateValue } from "../../context/StateProvider";
+import axios from "axios";
+import Pusher from "pusher-js";
 import StoryReel from "./StoryReel";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
-import avi from "../../assets/andrew.jpg";
-import { useStateValue } from "../../context/StateProvider";
 
 const Feed = () => {
   const [{ user }, dispatch] = useStateValue();
