@@ -1,2 +1,12 @@
 .feed {
+  display: flex;
+  flex: 1;
+  padding: 25px 10px;
+  justify-content: center;
+}
+
+.feed__container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
 }

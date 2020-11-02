@@ -1,4 +1,5 @@
 import React from "react";
+import "./Feed.css";
 import StoryReel from "./StoryReel";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
@@ -10,16 +11,17 @@ const Feed = () => {
   };
   return (
     <div className="feed">
-      <StoryReel />
-      <CreatePost />
-      <Post
-        profilePic={avi}
-        body="This is an example of a post"
-        timestamp="1604328116365"
-        imgName="imgName"
-        username={user.displayName}
-      />
-      {/* {
+      <div className="feed__container">
+        <StoryReel />
+        <CreatePost />
+        <Post
+          profilePic={avi}
+          body="This is an example of a post"
+          timestamp="1604328116365"
+          imgName="imgName"
+          username={user.displayName}
+        />
+        {/* {
                 postsData.map(post => (
                     <Post 
                         profilePic={post.avatar} 
@@ -30,6 +32,7 @@ const Feed = () => {
                     />
                 ))
             } */}
+      </div>
     </div>
   );
 };
