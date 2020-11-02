@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "./CreatePost.css";
 import avi from "../../assets/andrew.jpg";
 
-import { Avatar, Input } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import Videocam from "@material-ui/icons/VideocamRounded";
 import PhotoLibrary from "@material-ui/icons/PhotoLibraryRounded";
 import InsertEmoticon from "@material-ui/icons/InsertEmoticonRounded";
