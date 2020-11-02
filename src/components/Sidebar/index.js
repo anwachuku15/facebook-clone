@@ -2,6 +2,7 @@ import React from "react";
 // import { useStateValue } from '../../context/StateProvider'
 
 import "./Sidebar.css";
+import avi from "../../assets/andrew.jpg";
 import SidebarRow from "./SidebarRow";
 import LocalHospital from "@material-ui/icons/LocalHospitalRounded";
 import EmojiFlags from "@material-ui/icons/EmojiFlagsRounded";
@@ -16,7 +17,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <SidebarRow src="" title="Andrew Nwachuku" />
+      <SidebarRow src={avi} title="Andrew Nwachuku" />
       <SidebarRow Icon={LocalHospital} title="COVID-19 Information Center" />
       <SidebarRow Icon={EmojiFlags} title="Pages" />
       <SidebarRow Icon={People} title="Friends" />
