@@ -3,11 +3,13 @@ MERN Stack
 - React
 - React Context API for Data Management
 - Material-UI
-- Express.js
 - Node.js
+- Express.js
 - MongoDB
 - GridFS
 - Heroku
+
+Real Time Updates
 
 # Getting Started with Create React App
 
