@@ -1,17 +1,18 @@
 import React, { useState, useRef } from "react";
 import "./CreatePost.css";
 import { useStateValue } from "../../context/StateProvider";
-import avi from "../../assets/andrew.jpg";
+import axios from "../../axios";
+import FormData from "form-data";
 
-import { Avatar } from "@material-ui/core";
+import { Avatar, Input } from "@material-ui/core";
 import Videocam from "@material-ui/icons/VideocamRounded";
 import PhotoLibrary from "@material-ui/icons/PhotoLibraryRounded";
 import InsertEmoticon from "@material-ui/icons/InsertEmoticonRounded";
 
 const CreatePost = () => {
   const [{ user }, dispatch] = useStateValue();
-
   const [input, setInput] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [image, setImage] = useState(null);
 
   const photoVideoButton = useRef();
@@ -21,12 +22,59 @@ const CreatePost = () => {
   };
   const handleChange = (e) => {
     if (e.target.files[0]) {
+      console.log(e.target.files[0]);
       setImage(e.target.files[0]);
     }
   };
 
-  const handleSubmit = () => {
-    console.log("Submitting");
+  const savePost = async (postData) => {
+    await axios.post("/upload/post", postData).then((res) => {
+      console.log(res);
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (image) {
+      const imgForm = new FormData();
+      imgForm.append("file", image, image.name);
+
+      axios
+        .post("/upload/image", imgForm, {
+          headers: {
+            accept: "application/json",
+            "Accept-Language": "en-US,en;q=0.8",
+            "Content-Type": `multipart/form-data; boundary=${imgForm._boundary}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+
+          const postData = {
+            text: input,
+            imgName: res.data.filename,
+            user: user.displayName,
+            avatar: user.photoURL,
+            timestamp: Date.now(),
+          };
+          console.log(postData);
+          savePost(postData);
+        });
+    } else {
+      const postData = {
+        text: input,
+        user: user.displayName,
+        avatar: user.photoURL,
+        timestamp: Date.now(),
+      };
+      console.log(postData);
+      savePost(postData);
+    }
+
+    setImageUrl("");
+    setInput("");
+    setImage(null);
   };
 
   const name = user.displayName.split(" ");
@@ -48,6 +96,13 @@ const CreatePost = () => {
             className="createPost__fileSelector"
             onChange={handleChange}
           /> */}
+          <input
+            type="file"
+            accept="image/*, video/*"
+            style={{ visibility: "hidden", width: 0, height: 0 }}
+            ref={photoVideoButton}
+            onChange={handleChange}
+          />
           <button onClick={handleSubmit} type="submit">
             Hidden Submit
           </button>
@@ -73,13 +128,6 @@ const CreatePost = () => {
           <h3>Feeling/Activity</h3>
         </div>
       </div>
-
-      <input
-        type="file"
-        accept="image/*, video/*"
-        style={{ visibility: "hidden", width: 0, height: 0 }}
-        ref={photoVideoButton}
-      />
     </div>
   );
 };
