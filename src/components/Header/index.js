@@ -1,9 +1,10 @@
 import React from "react";
+
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import Search from "@material-ui/icons/Search";
 import Home from "@material-ui/icons/HomeRounded";
-import Watch from "@material-ui/icons/SubscriptionsRounded";
+import Watch from "@material-ui/icons/SubscriptionsOutlined";
 import Marketplace from "@material-ui/icons/StorefrontRounded";
 import Groups from "@material-ui/icons/SupervisedUserCircleRounded";
 import Pages from "@material-ui/icons/FlagRounded";
@@ -24,7 +25,7 @@ const Header = () => {
         </div>
       </div>
       <div className="header__center">
-        <div className="header__option">
+        <div className="header__option header__option--active">
           <Home />
         </div>
         <div className="header__option">
@@ -44,7 +45,7 @@ const Header = () => {
         </div>
       </div>
       <div className="header__right">
-        <div className="headerInfo">
+        <div className="header__info">
           <Avatar />
           <h4>Andrew</h4>
         </div>
