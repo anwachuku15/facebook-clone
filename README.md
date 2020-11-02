@@ -7,6 +7,7 @@ MERN Stack
 - Express.js
 - MongoDB
 - GridFS
+- Pusher (real-time updates)
 - Heroku
 
 Real Time Updates
