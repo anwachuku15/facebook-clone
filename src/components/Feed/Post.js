@@ -40,8 +40,15 @@ const Post = ({ profilePic, imgName, username, timestamp, body }) => {
       </div>
       <div className="post__bottom">
         <p>{body}</p>
-        {/* Image */}
       </div>
+      {imgName && (
+        <div className="post__image">
+          <img
+            src={`http://localhost:9000/retrieve/images/single?name=${imgName}`}
+            alt=""
+          />
+        </div>
+      )}
       <div className="post__options">
         <div className="post__option">
           <ThumbUpRounded />
