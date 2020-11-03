@@ -44,7 +44,7 @@ const Post = ({ profilePic, imgName, username, timestamp, body }) => {
       {imgName && (
         <div className="post__image">
           <img
-            src={`http://localhost:9000/retrieve/images/single?name=${imgName}`}
+            src={`https://facebookclone-mern.herokuapp.com/retrieve/images/single?name=${imgName}`}
             alt=""
           />
         </div>
