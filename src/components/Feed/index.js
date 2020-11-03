@@ -8,6 +8,10 @@ import StoryReel from "./StoryReel";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 
+const pusher = new Pusher("c7fd13149f9cdec61900", {
+  cluster: "us2",
+});
+
 const Feed = () => {
   const [{ user }, dispatch] = useStateValue();
   const [postsData, setPostsData] = useState([]);
@@ -18,6 +22,15 @@ const Feed = () => {
       setPostsData(res.data);
     });
   };
+
+  // real-time updates
+  useEffect(() => {
+    const channel = pusher.subscribe("posts");
+    channel.bind("inserted", (data) => {
+      console.log(data);
+      syncFeed();
+    });
+  }, []);
 
   useEffect(() => {
     syncFeed();
