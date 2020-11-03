@@ -1,13 +1,22 @@
 .feed {
-  display: flex;
+  /* display: flex; */
   flex: 1;
-  padding: 25px 10px;
+  padding: 0 10px 25px 10px;
   justify-content: center;
+  align-items: center;
+  overflow: scroll;
+  height: 100vh;
+}
+
+.feed::-webkit-scrollbar {
+  display: none;
 }
 
 .feed__container {
-  display: flex;
+  /* display: flex; */
+  margin-left: 12%;
+  margin-right: 12%;
   flex-direction: column;
   width: 75%;
-  /* align-items: center; */
+  align-items: center;
 }
