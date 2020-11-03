@@ -8,7 +8,8 @@ import { Avatar } from "@material-ui/core";
 const Story = ({ image, profileSrc, title }) => {
   const [{ user }, dispatch] = useStateValue();
   return (
-    <div style={{ backgroundImage: `url(${aok})` }} className="story">
+    <div className="story">
+      <div className="story__card"></div>
       <Avatar src={user.photoURL} className="story__avatar" />
       <h4>{title}</h4>
     </div>

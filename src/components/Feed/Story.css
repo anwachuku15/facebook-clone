@@ -1,24 +1,35 @@
 .story {
   position: relative;
+  width: 140px;
+  height: 200px;
+  box-shadow: 0px 2px rgba(91, 90, 90, 0.3);
+  border-radius: 10px;
+  margin: 20px 10px 10px 10px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.story__card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+  background-image: url("../../assets/aok.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 140px;
-  height: 200px;
-  /* box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 1); */
-  border-radius: 10px;
-  margin: 20px 10px 10px 10px;
-  margin-left: 10px;
-  cursor: pointer;
-  transition: transform 100ms ease-in;
-  overflow: visible !important;
+  transition: all 0.5s;
 }
 
-.story:hover {
-  transform: scale(1.07);
+.story:hover .story__card,
+.story:focus .story__card {
+  transform: scale(1.2);
 }
 
 .story__avatar {
+  position: absolute !important;
+  top: 0;
+  left: 0;
   margin: 10px;
   border: 3px solid #2e81f4;
 }
