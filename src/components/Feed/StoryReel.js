@@ -20,6 +20,11 @@ const StoryReel = () => {
         profileSrc={require("../../assets/andrew.jpg")}
         title="Andrew Nwachuku"
       />
+      <Story
+        image={require("../../assets/aok.jpg")}
+        profileSrc={require("../../assets/andrew.jpg")}
+        title="Andrew Nwachuku"
+      />
     </div>
   );
 };
