@@ -1,6 +1,6 @@
 # Facebook Clone
 
-## MERN Stack
+### MERN Stack
 
 - React
 - React Context API for Data Management
